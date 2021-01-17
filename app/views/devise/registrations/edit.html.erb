@@ -1,0 +1,43 @@
+<div class="second_wrapper">
+  <%= render "shared/second-header"%>
+      <div class="form" >
+                    <div class='form-wrap'>
+                        <div class='form-header'>
+                          <h1 class='form-header-text'>Edit <%= resource_name.to_s.humanize %></h1>
+                        </div>
+                        <%= form_with model: @user, url: user_registration_path, class:'registration-main',local: true do |f| %>
+                          <div class="form-group">
+                            <%= render 'devise/shared/error_messages', model: f.object%>
+                          </div>
+                          <div class="form-group">
+                            <label class="form-text">nickname</label>
+                              <%= f.text_field :nickname, autofocus: true,class:"input-default" %>
+                            </div>
+                            <div class="form-group">
+                            <label class="form-text">メールアドレス</label>
+                            <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"input-default"  %>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-text">パスワード</label><i>(leave blank if you don't want to change it)</i>
+                                <%= f.password_field :password, autocomplete: "new-password",class:"input-default"  %>
+                                <% if @minimum_password_length %>
+                                  <br />
+                                  <em><%= @minimum_password_length %> characters minimum</em>
+                                <% end %>
+                            </div>
+                            <div class="form-group">
+                            <label class="form-text">パスワード</label>
+                            <%= f.password_field :password_confirmation, autocomplete: "new-password"  ,class:"input-default"%>
+                            </div>
+                            <div class="form-group">
+                            <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+                            <%= f.password_field :current_password, autocomplete: "current-password"  ,class:"input-default" %>
+                            </div>
+                            <div class="form-group">
+                                <%= f.submit "Update",class:"register-btn" %>
+                            </div>
+                          <% end %>
+                    </div>
+      </div>
+  <%= render "shared/second-footer"%>
+</div>

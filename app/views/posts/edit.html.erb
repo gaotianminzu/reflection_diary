@@ -5,7 +5,7 @@
                 <div class='form-wrap'>
                     <div class='form-header'> <h1 class='form-header-text'>記録する</h1>
                     </div>
-                    <%= form_with model:@post, url:posts_path, local: true do |f| %>
+                    <%= form_with model:@post, url:post_path, local: true do |f| %>
                           <div class="form-group">
                             <label class="form-text">事実</label>
                               <%= f.text_area :fact, placeholder: 'どんなことがありましたか？' ,class:"input-area-default"  %>

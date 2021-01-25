@@ -52,8 +52,20 @@
                       <%= image_tag post.image.variant(resize: '500x500') if post.image.present?  %>
                     </div>
                     <div class="diary-review">
-                      <div>いいね</div>
-                      <div>コメント
+                      <div>  <%# いいね start %>
+                        <div id="like-icon-post-<%= post.id.to_s %>">
+                            <% if post.liked_by(current_user).present? %>
+                              <%= link_to "いいねを取り消す", post_like_path(post.id, post.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text" %>
+                            <% else %>
+                              <%= link_to "いいね", post_likes_path(post), method: :POST, remote: true, class: "comment hide-text" %>
+                            <% end %>
+                          </div>
+                        <div id="like-text-post-<%= post.id.to_s %>">
+                          <%= render "like_text", { likes: post.likes } %>
+                        </div>
+                      </div> <%# いいね end %>
+                 
+                      <div>     <%# コメント start %>
                                     
                         <div id="comment-post-<%= post.id.to_s %>">
                             <%= render 'comment_list', { post: post } %>
@@ -69,7 +81,7 @@
                             <% end %>
                           </div>
 
-                      </div>
+                      </div>     <%# コメント end %>
                     </div>
                   </div>
             </div>

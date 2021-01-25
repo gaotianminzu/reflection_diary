@@ -605,3 +605,28 @@ table{
     margin: 5px 0 0 10px;
     background-size: 11px !important;
   }
+/* LIKE */
+
+.loved {
+    background-image: url("like");
+    background-repeat: no-repeat;
+    height: 36px;
+    width: 36px;
+    background-size: 36px !important;
+  }
+  
+  .hide-text {
+    display: block;
+    overflow: hidden;
+    text-indent: 110%;
+    white-space: nowrap;
+  }
+  
+  .comment {
+    background-image: url("prelike");
+    background-repeat: no-repeat;
+    height: 36px;
+    width: 36px;
+    background-size: 36px !important;
+  }
+  

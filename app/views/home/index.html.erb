@@ -11,10 +11,15 @@
                     </ul>
                 </nav>
             </header>
+            
             <div class="home-content wrapper">
                 <h2 class="page-title">Reflection Diary </h2>
                 <p class="catch">日常の気づきから、暮らしをアップデート</p>
-                <%= link_to '日記を書く', posts_path, class: "button"  %>
+                    <% if user_signed_in? %>
+                    <%= link_to '日記を書く', user_path(current_user.id), class: "button"  %>
+                     <% else %>
+                    <%= link_to '日記を書く', posts_path, class: "button"  %>
+                     <% end%>
             </div>
             
         </div>

@@ -1,0 +1,95 @@
+<%= render "shared/second-header"%>
+<div class="second_wrapper">
+    <div class="wrapper">
+
+        <div class="diary-box">
+
+          <div class="search-area">
+                <div class="form-text" >キーワード検索</div>
+                      <%= form_with(url: search_key_posts_path, local: true, method: :get, class: "search-form") do |form| %>
+                        <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+                        <%= form.submit "検索", class: "search-btn" %>
+                      <% end %>
+
+          </div>
+
+          <% if @posts.length !=0 %>
+                <% @posts.each do |post| %>
+
+                  <div class="diary-item">
+                    <div class="diary-article">
+                        <div class="diary-left">
+                        <div class="post-date"><%= l post.created_at %><span><%= l post.created_at, format: :seireki %></span></div>
+                        </div>
+                          <div class="diary-right">
+                          <div class="diary-menu">
+                            <div> <%= link_to '書き直す', edit_post_path(post.id), class:"diary-menu-item"%></div>
+                            <div> <%= link_to 'ごみ箱', post_path(post.id), method: :delete ,class:"diary-menu-item"%></div>
+                          </div>
+                            <table>
+                              <tr>
+                                <th>事 実</th>
+                                <td><%= post.fact %></td>
+                              </tr>
+                              <tr>
+                                <th>気づき</th>
+                                <td><%= post.notice %></td>
+                              </tr>
+                              <tr>
+                                <th>分 類</th>
+                                <td><%= post.category.name %></td>
+                              </tr>
+                              <tr>
+                                <th></th>
+                                <td></td>
+                              </tr>
+                            </table>
+                        </div>
+                    </div>
+                        <div class="diary-article-bottom">
+                          <div class="diary-image-box">
+                            <%= image_tag post.image.variant(resize: '500x500') if post.image.present?  %>
+                          </div>
+                          <div class="diary-review">
+                            <div>  <%# いいね start %>
+                              <div id="like-icon-post-<%= post.id.to_s %>">
+                                  <% if post.liked_by(current_user).present? %>
+                                    <%= link_to "いいねを取り消す", post_like_path(post.id, post.liked_by(current_user)), method: :DELETE, remote: true, class: "loved hide-text" %>
+                                  <% else %>
+                                    <%= link_to "いいね", post_likes_path(post), method: :POST, remote: true, class: "comment hide-text" %>
+                                  <% end %>
+                                </div>
+                              <div id="like-text-post-<%= post.id.to_s %>">
+                                <%= render "/shared/like_text", { likes: post.likes } %>
+                              </div>
+                            </div> <%# いいね end %>
+                      
+                            <div>     <%# コメント start %>
+                                          
+                              <div id="comment-post-<%= post.id.to_s %>">
+                                  <%= render '/shared/comment_list', { post: post } %>
+                                </div>
+                                <%= link_to time_ago_in_words(post.created_at).upcase + "前", post_path(post),
+                                  class: "light-color post-time no-text-decoration" %>
+                                <hr>
+                                <div class="row actions" id="comment-form-post-<%= post.id.to_s %>">
+                                  <%= form_with model: [post, Comment.new], class: "w-100" do |f| %>
+                                    <%= f.hidden_field :user_id, value: current_user.id %>
+                                    <%= f.hidden_field :post_id, value: post.id %>
+                                    <%= f.text_field :text, class: "form-control comment-input border-0", placeholder: "コメント ...", autocomplete: :off %>
+                                  <% end %>
+                                </div>
+
+                            </div>     <%# コメント end %>
+                          </div>
+                        </div>
+                  </div>
+                <% end %>
+             <% else %>
+            該当する日記はありません。
+                <% end %>
+        </div>
+    </div>
+</div>
+  <div class="push"></div>
+<%= render "shared/second-footer" %>

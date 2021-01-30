@@ -8,6 +8,22 @@ class UsersController < ApplicationController
     set_category_column
   end
 
+
+  #公開・非公開設定
+  def release
+
+    @user =  User.find(params[:id])
+    @user.released! unless @user.released?
+    redirect_to  "/users/edit", notice: 'このアカウントを公開しました'
+  end
+
+  def nonrelease
+
+    @user =  User.find(params[:id])
+    @user.nonreleased! unless @user.nonreleased?
+    redirect_to "/users/edit", notice: 'このアカウントを非公開にしました'
+  end
+
   # カテゴリ検索条件にマッチしたPost情報を取得
   def search_me
     @results = @p.result.includes(:category)

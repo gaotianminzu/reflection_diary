@@ -30,6 +30,7 @@
                   </div>
                     <div class="diary-right">
                     <div class="diary-menu">
+                     <div><%= post.user.nickname %></div>
                       <div> <%= link_to '書き直す', edit_post_path(post.id), class:"diary-menu-item"%></div>
                       <div> <%= link_to 'ごみ箱', post_path(post.id), method: :delete ,class:"diary-menu-item"%></div>
                     </div>

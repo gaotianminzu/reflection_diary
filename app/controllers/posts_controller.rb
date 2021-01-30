@@ -4,7 +4,7 @@ class PostsController < ApplicationController
 
 
   def index
-    @posts = Post.includes(:user).order("created_at DESC")
+    @posts = Post.includes(:user).order("posts.created_at DESC").joins(:user).where(users: {status: "1"})
     set_category_column
   end
 
@@ -80,5 +80,6 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:fact, :notice, :image, :category_id).merge(user_id: current_user.id)
   end
+
 
 end

@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :like
   has_many :categories
+  enum status:{nonreleased: 0, released: 1}
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -23,5 +24,6 @@ class User < ApplicationRecord
     clean_up_passwords
     result
   end
+
 
 end

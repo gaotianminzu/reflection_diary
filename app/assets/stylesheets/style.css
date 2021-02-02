@@ -67,7 +67,7 @@ img {
 }
 .sub-title {
     font-size: 1.375rem;
-    padding: 0 8px 8px;
+    padding:  10px 8px;
     border-bottom: 2px #0bd solid;
     font-weight: normal;
 }
@@ -132,6 +132,7 @@ iframe {
 
 .main-nav-bg {
     background: #819da2;
+    padding:10px;
 }
 
 .wrapper {
@@ -341,6 +342,7 @@ input[type="submit"] {
     justify-content: space-between;
 }
 #sns .sub-title {
+
     margin-bottom: 30px;
 }
 .sns-box {

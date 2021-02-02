@@ -10,6 +10,10 @@
                               <div class="form-group">
                                 <%= render 'devise/shared/error_messages', model: f.object%>
                               </div>
+                            <div class="form-group">
+                            <label class="form-text">nickname</label>
+                              <%= f.text_field :nickname, autofocus: true,class:"input-default" %>
+                            </div>
                               <div class="form-group">
                                 <label class="form-text">メールアドレス</label>
                                 <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"input-default" %>

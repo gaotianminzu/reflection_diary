@@ -1,10 +1,12 @@
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
+  has_many :follows, dependent: :destroy
   has_many :comments
   has_many :like
   has_many :categories
   enum status:{nonreleased: 0, released: 1}
-  
+  has_one_attached :image
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,

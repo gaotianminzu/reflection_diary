@@ -10,18 +10,19 @@ Rails.application.routes.draw do
     resources :likes,only: [:create, :destroy]
   end
   resources :home, only: [:index]
-  
-  resources :users, only: [:show] do
+  resources :follows, only: [:index, :create, :destroy]
+  resources :users, only: [:index, :show] do
     member do
       patch 'release'
       patch 'nonrelease'
     end
   end
 
+  resources :charts, only: [:index] 
+
   root to: "home#index"
   get 'posts/search' 
   get 'posts/search_me'
-  # patch 'users', to:'users#release'
-  # patch 'users', to:'users#nonrelease'
+  get   'users', to:'users#private'
 
 end

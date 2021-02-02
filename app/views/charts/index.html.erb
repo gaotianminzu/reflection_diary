@@ -1,0 +1,36 @@
+<canvas id="myChart"></canvas>
+<p><%= @thanks %> </p><p><%= @lesson%></p><p><%= @emotion %> </p>
+<script src ="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js"></script>
+<script>
+
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+  type: 'radar',
+  data: {
+    labels: ["感謝", "教訓", "感情", ],
+    datasets: 
+    [
+
+        {
+        backgroundColor: 'rgba(122,255,129,0.2)',
+        borderColor: 'rgba(122,255,129,0.2)',
+        data: [<%= @thanks %>, <%= @lesson%>, <%= @emotion %> ]
+        },
+                {
+        backgroundColor: 'rgba(122,255,129,0.2)',
+        borderColor: 'rgba(122,255,129,0.2)',
+        data: [<%= @thanks_all %>, <%= @lesson_all%>, <%= @emotion_all %> ]
+        },
+
+    ]
+  },
+  options: {
+      scale: {
+          ticks: {
+              suggestedMin: 0,
+              suggestedMax: 5
+          }
+      }
+  }
+});
+</script>

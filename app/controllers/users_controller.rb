@@ -2,32 +2,37 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :search_post, only: [:show, :search_me]
 
+  def index
+    @users = User.where.not(id:current_user.id)
+    @self = User.find_by(id:current_user.id)
+  end
+
   def show
     @nickname = current_user.nickname
     @posts = current_user.posts.includes(:user).order("created_at DESC")
     set_category_column
   end
 
-
   #公開・非公開設定
   def release
 
     @user =  User.find(params[:id])
     @user.released! unless @user.released?
-    redirect_to  "/users/edit", notice: 'このアカウントを公開しました'
+    redirect_to  "/users/edit", notice: '日記を公開しました'
   end
 
   def nonrelease
 
     @user =  User.find(params[:id])
     @user.nonreleased! unless @user.nonreleased?
-    redirect_to "/users/edit", notice: 'このアカウントを非公開にしました'
+    redirect_to "/users/edit", notice: '日記を非公開にしました'
   end
 
   # カテゴリ検索条件にマッチしたPost情報を取得
   def search_me
     @results = @p.result.includes(:category)
   end
+  
 
   private
 
@@ -43,3 +48,5 @@ class UsersController < ApplicationController
   end
 
 end
+
+

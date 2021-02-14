@@ -1,15 +1,17 @@
       <header class="main-nav-bg">
-         <span  id="writing" ><%= link_to '', new_post_path%> </span>
+      <a id="top"></a>
             <div id="navArea" class="wrapper">
+             <div class="nav_wrapper">
+                    <div class="toggle_btn nav_wrapper_child center ">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                     <div class="post-page-header">
                         <%= link_to 'Reflection Diary', root_path, class:"logo"%>
                     </div>
-   
-                    <div class="toggle_btn ">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
+                    <span  id="writing"><%= link_to '', new_post_path%> </span>
+                    
                     <nav>
                         <div class="inner">
                         <ul>
@@ -39,9 +41,10 @@
 
                     
                     <div id="mask"></div>
-
+              </div>
             </div>
 
+ 
 
       </header>
 

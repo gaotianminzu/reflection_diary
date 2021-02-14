@@ -4,7 +4,7 @@ nav
 nav {
   display: block;
   position: fixed;
-  top: 0;
+  top:85px;
   left: -300px;
   bottom: 0;
   width: 300px;
@@ -15,9 +15,11 @@ nav {
   transition: all .5s;
   z-index: 3;
   opacity: 0;
+  
 }
 .open nav {
   left: 0;
+  top:85px;
   opacity: 1;
 }
 nav .inner {
@@ -27,6 +29,7 @@ nav .inner ul {
   list-style: none;
   margin: 0;
   padding: 0;
+  
 }
 nav .inner ul li {
   position: relative;
@@ -41,6 +44,7 @@ nav .inner ul li a {
   padding: 1em;
   text-decoration: none;
   transition-duration: 0.2s;
+  
 }
 nav .inner ul li a:hover {
   background: #e4e4e4;
@@ -81,8 +85,8 @@ nav .sub ul li a:hover {
 .toggle_btn {
   display: block;
   position: fixed;
-  top: 30px;
-  right: 30px;
+  top: 20px;
+  left: 15px;
   width: 30px;
   height: 30px;
   transition: all .5s;
@@ -159,3 +163,4 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
 }
+

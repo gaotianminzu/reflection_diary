@@ -1,6 +1,6 @@
         <div id="home" class="big-bg">
             <header class="page-header wrapper">
-                <nav>
+                <div>
                    <ul class="main-nav">
                     <% if user_signed_in? %>
                         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"  %></li> 
@@ -9,12 +9,17 @@
                         <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li> 
                     <% end%>
                     </ul>
-                </nav>
+                </div>
             </header>
+            
             <div class="home-content wrapper">
                 <h2 class="page-title">Reflection Diary </h2>
-                <p class="catch">日常の気づきから、人生をアップデート</p>
-                <%= link_to '日記を書く', posts_path, class: "button"  %>
+                <p class="catch">日常の気づきから、暮らしをアップデート</p>
+                    <% if user_signed_in? %>
+                    <%= link_to '日記を書く', user_path(current_user.id), class: "button"  %>
+                     <% else %>
+                    <%= link_to '日記を書く', posts_path, class: "button"  %>
+                     <% end%>
             </div>
-            
         </div>
+

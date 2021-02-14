@@ -13,3 +13,10 @@
  *= require_tree .
  *= require_self
  */
+
+
+ .notifications {
+  color: whitesmoke;
+  text-align: center;  
+   background-color:violet;
+}

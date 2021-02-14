@@ -1,0 +1,14 @@
+
+<% post.comments.each do |comment| %>
+  <div class="pd2">
+    <% if comment.user == current_user %>
+      <%= link_to "✖️", post_comment_path(post.id, comment), method: :delete, remote: true, class: "delete-comment"%>
+    <% end %>
+    <span>
+      <strong>
+        <%= link_to comment.user.nickname, "/users/#{post.user.id}" , class:"txt_name"%>
+      </strong>
+    </span>
+    <span class="txt"><%= comment.text %></span>
+  </div>
+<% end %>

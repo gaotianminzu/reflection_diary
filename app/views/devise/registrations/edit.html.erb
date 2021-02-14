@@ -1,43 +1,106 @@
 <div class="second_wrapper">
   <%= render "shared/second-header"%>
-      <div class="form" >
-                    <div class='form-wrap'>
-                        <div class='form-header'>
-                          <h1 class='form-header-text'>Edit <%= resource_name.to_s.humanize %></h1>
+  <div class="notifications">
+<%= flash[:notice]  %>
+  </div>
+             <div class="profile_box">
+              <div class="form" >
+                <div class='form-wrap'>
+                    <div class='form-header'>
+                      <h1 class='form-header-text' id = "profile">プロフィール編集</h1>
+                    </div>
+            
+                    <%= form_with model: @user, url: user_registration_path, class:'registration-main',local: true do |f| %>
+                      <div class="form-group">
+                        <%= render 'devise/shared/error_messages', model: f.object%>
+                      </div>
+                      <div class="form-group">
+                        <label class="form-text">ニックネーム</label>
+                          <%= f.text_field :nickname, autofocus: true,class:"input-default" %>
                         </div>
-                        <%= form_with model: @user, url: user_registration_path, class:'registration-main',local: true do |f| %>
+                        
+                        <div class="form-group">
+                        <label class="form-text">画像</label>
+                          <%= image_tag @user.image.variant(resize: '100x100') if @user.image.present? %>
+                            <br>
+                              <%= f.file_field :image %>
+                          </div>
+                        <div class="form-group">
+                        <label class="form-text">ひとこと</label>
+                          <%= f.text_area :contents, autofocus: true,class:"input-default" %>
+                        </div>
+                        <div class="form-group">
+                        <label class="form-text">メールアドレス</label>
+                        <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"input-default"  %>
+                        </div>
+
+
+                        <div class="form-group">
+                            <%= f.submit "Update",class:"register-btn" %>
+                        </div>
+                      <% end %>
+                     <div id ="password" >
+                     </div>
+                </div>
+              </div>
+
+              <div id ="password" > </div>
+
+              <div class="form">
+                <div class='form-wrap'>
+                    <div class='form-header'>
+                      <h1 class='form-header-text' >パスワード変更</h1>
+                    </div>
+                          <%= form_with model: @user, url: user_registration_path, class:'registration-main',local: true do |f| %>
                           <div class="form-group">
-                            <%= render 'devise/shared/error_messages', model: f.object%>
+                              <label class="form-text">変更後のパスワード</label><i></i>
+                              <%= f.password_field :password, autocomplete: "new-password",class:"input-default"  %>
+                              <% if @minimum_password_length %>
+                                <br />
+                                <em><%= @minimum_password_length %> characters minimum</em>
+                              <% end %>
                           </div>
                           <div class="form-group">
-                            <label class="form-text">nickname</label>
-                              <%= f.text_field :nickname, autofocus: true,class:"input-default" %>
-                            </div>
-                            <div class="form-group">
-                            <label class="form-text">メールアドレス</label>
-                            <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"input-default"  %>
-                            </div>
-                            <div class="form-group">
-                                <label class="form-text">パスワード</label><i>(leave blank if you don't want to change it)</i>
-                                <%= f.password_field :password, autocomplete: "new-password",class:"input-default"  %>
-                                <% if @minimum_password_length %>
-                                  <br />
-                                  <em><%= @minimum_password_length %> characters minimum</em>
-                                <% end %>
-                            </div>
-                            <div class="form-group">
-                            <label class="form-text">パスワード</label>
-                            <%= f.password_field :password_confirmation, autocomplete: "new-password"  ,class:"input-default"%>
-                            </div>
-                            <div class="form-group">
-                            <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-                            <%= f.password_field :current_password, autocomplete: "current-password"  ,class:"input-default" %>
-                            </div>
-                            <div class="form-group">
-                                <%= f.submit "Update",class:"register-btn" %>
-                            </div>
+                          <label class="form-text">確認用のパスワード </label>
+                          <%= f.password_field :password_confirmation, autocomplete: "new-password"  ,class:"input-default"%>
+                          </div>
+                          <div class="form-group">
+                          <%= f.label :current_password %><br />
+                          <%= f.password_field :current_password, autocomplete: "current-password"  ,class:"input-default"%>
+                          </div>
+
+                              <div class="form-group">
+                                  <%= f.submit "Update",class:"register-btn" %>
+                              </div>
                           <% end %>
                     </div>
-      </div>
+              </div>
+              <div id = "private"></div>
+              <div class="form"   >
+                <div class='form-wrap'>
+                      <div class='form-header'>
+                        <h1 class='form-header-text' >プライベート設定</h1>
+                      </div>
+                          <div class="form-group">
+                           
+                            <% if @user.released? %>
+                              <p class="center">現在、日記は公開中となっています。</p>
+
+                              <%= button_to '非公開にする',"/users/#{@user.id}/nonrelease", method: :patch,class:"register-btn center" %>
+
+                            <% else %>
+                              <p class="center">現在、日記は非公開となっています。</p>
+                              <%= button_to '公開する',"/users/#{@user.id}/release", method: :patch ,class:"register-btn center" %>
+
+                            <% end %>
+                            </div>
+                          
+                  </div>
+              </div>
+            </div>
+
+
+
+   <div class="push"></div>
   <%= render "shared/second-footer"%>
 </div>

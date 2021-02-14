@@ -1,0 +1,17 @@
+<strong>
+  <% follows.each.with_index do |follow, index| %>
+    <% if follows.size == 1 %>
+      <%= follow.user.nickname %> </strong> が「いいね！」しました
+    <% elsif follow == likes.last %>
+      </strong>and<strong>
+      <%= + follow.user.nickname %></strong> が「いいね！」しました
+    <% elsif index > 1 %>
+      </strong><%= "and " + (follows.size-index).to_s + " 他 " %> が「いいね！」しました
+      <% break %>
+    <% elsif index == likes.size-2 || index == 1 %>
+      <%= follow.user.nickname %>
+    <% else %>
+      <%= follow.user.nickname + ", " %>
+    <% end %>
+  <% end %>
+</strong>

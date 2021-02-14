@@ -1,5 +1,21 @@
 @charset "UTF-8";
 
+/* リセットCSS */
+body {
+    font-size: 14px;
+    color: #333;
+    margin: 0 auto;
+  }
+  h1,h2,h3,h4,h5,h6,p {
+    padding: 10px 0;
+    margin: 0;
+  }
+  
+  ul,li {
+    padding: 0;
+    margin: 0;
+  }
+
 /* 共通部分
 ------------------------------- */
 html {
@@ -9,6 +25,8 @@ body{
     font-family: "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", sans-serif;
     line-height: 1.7;
     color: #432;
+    height: 100%; 
+    background-color:#ddd;
 }
 a {
     text-decoration: none;
@@ -19,7 +37,13 @@ img {
 .wrapper {
     max-width: 1100px;
     margin: 0 auto;
-    padding: 0 4%;
+    padding: 0 auto;
+    position: relative; 
+    height: auto !important; 
+    height: 100%; 
+    min-height: 100%;
+
+
 }
 
 /* 大きな背景画像 */
@@ -45,7 +69,7 @@ img {
 }
 .sub-title {
     font-size: 1.375rem;
-    padding: 0 8px 8px;
+    padding:  10px 8px;
     border-bottom: 2px #0bd solid;
     font-weight: normal;
 }
@@ -57,7 +81,9 @@ img {
     color: #fff;
     border-radius: 5px;
     padding: 18px 32px;
+    border:none;
 }
+
 .button:hover {
     background: #819da2;
 }
@@ -71,10 +97,23 @@ iframe {
 ------------------------------- */
 .page-header {
     display: flex;
-    justify-content:space-between;
+    justify-content:flex-end;
     width:100%;
     
 }
+.post-page-header {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-right:10px;
+    display: flex;
+    justify-content:space-between;
+    width:100%;
+
+
+    
+}
+
+
 .logo {
     font-size: 2.5em;
     font-family: 'Philosopher', serif;
@@ -100,11 +139,20 @@ iframe {
 }
 
 .main-nav-bg {
-    background: #819da2;
+    background: rgba(100, 122, 95, 0.5);
+    /* background: #819da2; */
+    padding:10px;
+    z-index: 1;
+    top:0;
+    right:0;
+    width:100%;
+
+    position: fixed;
+
+    
 }
 
 .wrapper {
-
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 4%;
@@ -116,6 +164,7 @@ iframe {
 #home {
     background-image: url(mainbg.jpg);
     min-height: 100vh;
+    background-size:auto 100vh;
 }
 #home .page-title {
     text-transform: none;
@@ -129,49 +178,35 @@ iframe {
     margin: 10px 0 42px;
 }
 
-/* NEWS
-------------------------------- */
-#news {
-    background-image: url(../images/news-bg.jpg);
-    height: 270px;
-    margin-bottom: 40px;
-}
-#news .page-title {
-    text-align: center;
-}
-.news-contents {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 50px;
-}
 
-/* 記事部分 */
-article {
-    width: 74%;
-}
+
+/* diary部分 */
+
 .post-info {
     position: relative;
     padding-top: 4px;
     margin-bottom: 40px;
 }
 .post-date {
-    background: #0bd;
-    border-radius: 50%;
+    margin       : 10px 25px 0 0px;
+    width        : 100px;
+    height       : 100px;
+    background   : linear-gradient(to bottom,rgb(196, 213, 9), #f788c0);
     color: #fff;
-    width: 100px;
+    width: 110px;
     height: 100px;
-    font-size: 1.625rem;
+    font-size: 1.5rem;
     text-align: center;
-    position: absolute;
+
     top: 0;
-    padding-top: 10px;
+    padding-top: 15px;
 }
 .post-date span {
     font-size: 1rem;
     border-top: 1px rgba(255,255,255,.5) solid;
     padding-top: 6px;
     display: block;
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
 }
 .post-title {
@@ -179,155 +214,38 @@ article {
     font-size: 2rem;
     font-weight: normal;
 }
-.post-title,
-.post-cat {
-    margin-left: 120px;
-}
-article img {
-    margin-bottom: 20px;
-}
-article p {
-    margin-bottom: 1rem;
-}
 
-/* サイドバー */
-aside {
-    width: 22%;
-}
-.sub-menu {
-    margin-bottom: 60px;
-    list-style: none;
-}
-.sub-menu li {
-    border-bottom: 1px #ddd solid;
-}
-.sub-menu a {
-    color: #432;
-    padding: 10px;
-    display: block;
-}
-.sub-menu a:hover {
-    color: #0bd;
-}
-aside p {
-    padding: 12px 10px;
-}
 
-/* MENU
-------------------------------- */
-#menu {
-    background-image: url(../images/menu-bg.jpg);
-    min-height: 100vh;
-}
-.menu-content {
-    max-width: 560px;
-    margin-top: 10%;
-}
-.menu-content .page-title {
-    text-align: center;
-}
-.menu-content p {
-    font-size: 1.125rem;
-    margin: 10px 0 0;
-}
 
-.grid {
-  display: grid;
-  gap: 26px;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  margin-top: 6%;
-  margin-bottom: 50px;
-}
 
-/* CONTACT
-------------------------------- */
-#contact {
-    background-image: url(../images/contact-bg.jpg);
-    min-height: 100vh;
-}
-
-/* フォーム */
-/* form div {
-    margin-bottom: 14px;
-}
-label {
-    font-size: 1.125rem;
-    margin-bottom: 10px;
-    display: block;
-}
-input[type="text"],
-input[type="email"],
-textarea {
-    background: rgba(255,255,255,.5);
-    border: 1px #fff solid;
-    border-radius: 5px;
-    padding: 10px;
-    font-size: 1rem;
-}
-input[type="text"],
-input[type="email"] {
-    width: 100%;
-    max-width: 240px;
-}
-textarea {
-    width: 100%;
-    max-width: 480px;
-    height: 6rem;
-}
-input[type="submit"] {
-    border: none;
-    cursor: pointer;
-    line-height: 1;
-} */
-
-/* 店舗情報・地図 */
-#location {
-    padding: 4% 0;
-}
-#location .wrapper {
-    display: flex;
-    justify-content: space-between;
-}
-.location-info {
-    width: 22%;
-}
-.location-info p {
-    padding: 12px 10px;
-}
-.location-map {
-    width: 74%;
-}
-
-/* SNS */
-#sns {
-    background: #FAF7F0;
-    padding: 4% 0;
-}
-#sns .wrapper {
-    display: flex;
-    justify-content: space-between;
-}
-#sns .sub-title {
-    margin-bottom: 30px;
-}
-.sns-box {
-    width: 30%;
-}
 
 /* フッター
 ------------------------------- */
+.second_wrapper{
+    position: relative;
+    height: 100%; 
+    min-height: 100%;
+  }
 footer {
-    background: #432;
     text-align: center;
-    padding: 26px 0;
-    position: absolute;
-    bottom: 0;
     width:100%;
+    position: fixed; 
+    width: 100%;
+    background-color:rgba(118, 110, 100, 0.675);
+    /* background: linear-gradient(to right, rgb(185, 222, 185), rgb(130, 182, 138)); */
+    /* position: absolute;  */
+    bottom: 0;
+    line-height: 60px;
 }
 footer p {
     color: #fff;
     font-size: 0.875rem;
+    margin:0;
 }
+
+.push {
+    height: 300px;
+  }
 
 /* モバイル版
 ------------------------------- */
@@ -336,10 +254,17 @@ footer p {
         font-size: 2.5rem;
     }
     .page-header {
-        flex-direction: column;
+        display: flex;
         align-items: center;
+        justify-content: flex-end;
     }
 
+    .post-page-header {
+        display: flex;
+        align-items: center;
+        justify-content:space-between;
+
+    }
     /* HEADER */
     .logo {
         font-size: 2rem;
@@ -358,23 +283,7 @@ footer p {
         margin-top: 20%;
     }
 
-    /* NEWS */
-    .news-contents {
-        flex-direction: column;
-    }
-    #news .page-title {
-        margin-top: 30px;
-    }
-    article,
-    aside {
-        width: 100%;
-    }
-    aside {
-        margin-top: 60px;
-    }
-    .post-info {
-        margin-bottom: 30px;
-    }
+    
     .post-date {
         width: 70px;
         height: 70px;
@@ -396,35 +305,462 @@ footer p {
         margin-left: 80px;
     }
 
-    /* MENU */
-    .menu-content {
-        margin-top: 20%;
-    }
 
-    /* CONTACT */
-    #contact .page-title {
-        margin-top: 40px;
-    }
 
-    /* フォーム */
-    /* input[type="text"],
-    input[type="email"],
-    textarea {
-        max-width: 100%;
-    } */
+}
 
-    /* 店舗情報・地図 / SNS */
-    #location .wrapper,
-    #sns .wrapper {
-        flex-direction: column;
-    }
-    .location-info,
-    .location-map,
-    .sns-box {
-        width: 100%;
-    }
-    .sns-box {
-        margin-bottom: 30px;
-    }
+/* 日記Index */
+
+.diary-box { 
+    display: flex; 
+    flex-direction:column;
+    width: 800px;
+    margin:10px auto;
+
+}
+
+
+
+
+
+.diary-item {
+ border: 1px solid white;
+ margin:15px 0 0 20px;
+ padding:25px;
+ background-color:white;
+ border-radius: 10px;
+}
+
+
+.diary-article {
+
+
+}
+
+.diary-article-bottom {
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    width:100%;
+}
+
+.diary-review{
+
+}
+
+.diary-review2{
+    display:flex;
+    justify-content: space-between;
+    align-items:flex-start;
+    width:100%;
+
+}
+
+.diary-review3{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    margin-bottom:10px;
+
+}
+
+
+}
+.diary-image-box {
+    display:flex;
+    justify-content: center;
+
+}
+
+
+
+.diary-article2{
+    width:100%;
+    display:flex;
+    align-items:flex-start;
+
+}
+
+
+/* diary-table */
+.diary-article2 table{
+    width: 100%;
+    border-spacing: 0;
+    padding:10px 0 0 5px;
+
+  }
+  
+.diary-article2 table th{
+    width:20%;
+    border-top: solid  2px #2f6e3b;
+    text-align: center;
+    vertical-align: center;
+
+  }
+
+
+  
+.diary-article2 table td{
+    border-top: solid 1px #ddd;
+    padding: 10px;
+    margin: 0px;
+    text-align: left;
+  }
+
+.table_text_th {
+    width:100px;
+}
+.table_text_td {
+    width:440px;
+}
+.table_text_nowrap {
+    word-wrap: normal;
+}
+.table_text {
+    word-wrap: break-word;
+}
+.line {
+      border-top: 1px dotted rgb(208, 208, 208);
+      margin:15px 0;
+      width:100%;
+  }
+
+.pd2{
+    padding:2px 0;
+}
+.diary-menu {
+    display:flex;
+    justify-content:flex-end;
+    width:100%;
+     margin:auto 0;
+    height:40px;
+}
+
+.diary-menu-item {
+    margin-left:10px ;
+    font-size: 1rem;
+    background: rgb(133, 138, 132);
+    color: #fff;
+    border-radius: 5px;
+    padding: 10px 10px;
+}
+
+.diary-menu-item:hover {
+    background: #819da2;
+}
+
+
+.delete-comment {
+    background-image: url("~parts8");
+    background-repeat: no-repeat;
+    width: 11px;
+    height: 11px;
+    float: right;
+    margin: 5px 0 0 10px;
+    background-size: 11px !important;
+  }
+/* LIKE */
+
+.loved {
+    background-image: url("heart_gray");
+    background-repeat: no-repeat;
+    height: 36px;
+    width: 36px;
+    background-size: 36px !important;
+    padding-left:10px;
+  }
+  
+  .hide-text {
+    display: block;
+    overflow: hidden;
+    text-indent: 110%;
+    white-space: nowrap;
+  }
+  
+  .comment {
+    background-image: url("heart");
+    background-repeat: no-repeat;
+    height: 36px;
+    width: 36px;
+    background-size: 36px !important;
+    padding-left:10px;
+    border: none;  
+    outline: none; 
+  }
+  
+  /* profile */
+  .diary-header {
+      display:flex;
+      align-items: center;
+
+  }
+  .post-profile-icon {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin-right: 50px;
+    padding:0px;
+    border:solid 1px #eee;
+  }
+
+  .profile_box {
+      margin-top:120px;
+  }
+  
+
     
+  /* form */
+
+  .search-area {
+    display:flex;
+    justify-content: space-between;
+    width:100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding:100px 0 10px 0;
+    max-width: 800px;
+
+  }
+  
+  .search-box {
+
+    display:flex;
+    width:50%;
+
+  
+  }
+
+
+
+  .Box {
+    position: relative;
+    width:350px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .Box-SearchInput {
+    border-radius: 4px;
+    border: none;
+    width: 100%;
+    height: 45px;
+    letter-spacing: 0.1em;
+    padding-left: 20px;
+    padding-right: 45px;
+    background: #fff;
+    color: #000;
+    font-size: 14px;
+  }
+
+  .Box-Btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    padding: 0;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    background-color: #767171;
+    vertical-align: middle;
+    background-image: url("area-search-icon.png");
+    background-repeat: no-repeat;
+    background-position: center;    
+   
+  }
+
+
+  
+
+
+/* セレクトボックス */
+.select-box {
+    border-radius: 4px;
+    border: none;
+    width: 100%;
+    height: 45px;
+    letter-spacing: 0.1em;
+    padding-left: 20px;
+    padding-right: 45px;
+    background: #fff;
+    color: #000;
+    font-size: 14px;
+    
+  }
+
+
+  /* follow */
+.follow_box{
+ display:flex;
+ justify-content: flex-start;
+ margin:100px 0 0 0;
+}
+
+
+
+.follow_side{
+    background-color:aliceblue;
+    width:150px;
+    height:100%;
+    padding:10px;
+    border-radius:10px;
+    margin:25px ;
+
+}
+
+.follow_side p {
+ font-weight: bold; 1
+ font-size:20px;
+ text-align:center;
+}
+
+.follow_profile-header {
+    display:flex;
+    justify-content: center;
+}
+
+.follow-profile-icon {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin: auto;
+    padding:10px;
+    background-color:white;
+  }
+
+
+.follow_box_parts {
+    padding:6px;
+    border-radius: 5px;
+    margin-top:5px;
+
+}
+
+.fl_name {
+    color: brown;
+    word-wrap: break-word;
+  }
+
+  .fl_name:hover {
+    color: white;
+  }
+
+  
+
+
+
+.bg-br {
+    background-color:rgb(193, 236, 237);
+}
+
+.bg-pk {
+    background-color:pink;
+}
+
+.follow-btn {
+    margin: 0 5px;
+    width:100px;
+    background: #8e96b2;
+    border: 1px solid #b4aaaa;
+    color: #fff;
+    line-height: 30px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 0 auto;
+    border:none;
+    border-radius: 4px;
+    outline:none;
+  }
+  .mgr-10{
+    margin-right : 10px;
+}
+
+/* 右下ボタン */
+#page-top{
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    right: 50px;
+    bottom: -10px;
+    opacity: 0.8;
+    z-index: 3;
+  }
+  #page-top a{
+    position: relative;
+    display: block;
+    width: 100px;
+    height: 100px;
+    text-decoration: none;
+
+  }
+  #page-top a:before{
+    font-family: 'Font Awesome 5 free';
+    font-weight: 900;
+    content: '\f35b';
+    font-size: 60px;
+    color: rgb(207, 247, 208);
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px;
+  }
+
+  
+/* 日記を書くボタン */
+#writing{
+    width: 60px;
+    height: 60px;
+    position: fixed;
+    right: 100px;
+    top: 10px;
+    opacity: 0.7;
+    border-radius: 4px;
+  }
+  #writing a{
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 60px;
+    text-decoration: none;
+    background-color:teal;
+    border-radius: 30%;
+    border:solid 4px rgb(255, 255, 255);
+
+  }
+  #writing a:before{
+    font-family: 'Font Awesome 5 free';
+    font-weight: 900;
+    content: '\f5ad';
+    font-size: 40px;
+    color: rgb(207, 247, 208);
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 60px;
+  }
+
+  
+.center {
+    display: flex;
+    justify-content:center;
+}
+
+.top-space100 {
+ margin-top:100px;
 }

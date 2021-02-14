@@ -1,0 +1,15 @@
+<div class= "wrapper">
+                <p><%= @self.contents %></p>
+                <p><%= image_tag @self.image.variant(resize: '100x100') if @self.image.present? %></p>
+                <h1>ユーザー一覧</h1>
+                <% @users.each do |user|%>
+                <p><%= user.nickname %>さん</p>
+                <% follow = Follow.find_by(user_id: current_user.id, following_user_id: user.id) %>
+                  <% if follow.nil? %>
+                  <%= button_to 'フォローする', action: "create" , controller: 'follows',  params: { user_id: current_user.id, following_user_id: user.id} %>
+                  <% else %>
+                    <%= button_to 'フォロ解除', follow_path(follow.id), method: :delete %>
+                  <% end %>
+                <% end %>
+                </p>
+</div>

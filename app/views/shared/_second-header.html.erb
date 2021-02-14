@@ -1,19 +1,67 @@
       <header class="main-nav-bg">
-            <div class="page-header wrapper">
-            <h3 class="logo">Reflection Diary </h3>
-                <nav>
-                   <ul class="main-nav">
-                    <% if user_signed_in? %>
-                     <li><%= link_to 'プロフィール編集', edit_user_registration_path, class: "logout"  %></li> 
-                        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"  %></li> 
+         <span  id="writing" ><%= link_to '', new_post_path%> </span>
+            <div id="navArea" class="wrapper">
+                    <div class="post-page-header">
+                        <%= link_to 'Reflection Diary', root_path, class:"logo"%>
+                    </div>
+   
+                    <div class="toggle_btn ">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <nav>
+                        <div class="inner">
+                        <ul>
+                        <% if user_signed_in? %>
+                            <div class="sub-title">Diary</div>
+                            <li><%= link_to '日記を書く', new_post_path %></li> 
+                            <li ><%= link_to 'TOP', "/posts/" %></li> 
+                            <li ><%= link_to 'マイページ', "/users/#{current_user.id}" %></li> 
+                             <li><%= link_to '統計', charts_path %></li> 
+                            <li><%= link_to 'お気に入り', follows_path %></li> 
 
-                        
+                             <div class="sub-title">アカウント情報</div>
+                            <li><%= link_to 'プロフィール編集', edit_user_registration_path, class: "logout"  %></li> 
+                            <li><%= link_to 'パスワード設定', "/users/edit#password", class: "logout"  %></li> 
+                            <li><%= link_to 'プライベート設定', "/users/edit#private", class: "logout"  %></li> 
+                            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"  %></li> 
+                
+                            <% else %>
+                             <div class="sub-title">アカウント情報</div>
+                                <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+                                <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li> 
+                            <% end%>
+                        </ul>
+                        </div>
+                    </nav>
 
-                    <% else %>
-                        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-                        <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li> 
-                    <% end%>
-                    </ul>
-                </nav>
+
+                    
+                    <div id="mask"></div>
+
             </div>
+
+
       </header>
+
+<script>
+(function($) {
+  var $nav   = $('#navArea');
+  var $btn   = $('.toggle_btn');
+  var $mask  = $('#mask');
+  var open   = 'open'; // class
+  // menu open close
+  $btn.on( 'click', function() {
+    if ( ! $nav.hasClass( open ) ) {
+      $nav.addClass( open );
+    } else {
+      $nav.removeClass( open );
+    }
+  });
+  // mask close
+  $mask.on('click', function() {
+    $nav.removeClass( open );
+  });
+} )(jQuery);
+</script>

@@ -1,7 +1,21 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Category.create(name:'感謝')
+Category.create(name:'教訓')
+Category.create(name:'感情')
+User.create(email:'jjj@jjj.com',password:'jjjjjj', nickname:'Jane',status: 1)
+User.create(email:'kkk@kkk.com',password:'kkkkkk', nickname:'Kate',status: 1)
+User.create(email:'aaa@aaa.com',password:'aaaaaa', nickname:'aki',status: 1)
+Post.create(fact:'test2', notice:'test2',category_id:'1',user_id: '2')
+Post.create(fact:'test3', notice:'test3',category_id:'1',user_id: '3')
+Post.create(fact:'test1', notice:'test1',category_id:'1',user_id: '1')
+Post.create(fact:'test2', notice:'test2',category_id:'2',user_id: '2')
+Post.create(fact:'test3', notice:'test3',category_id:'2',user_id: '3')
+Post.create(fact:'test1', notice:'test1',category_id:'2',user_id: '1')
+Post.create(fact:'test2', notice:'test2',category_id:'3',user_id: '2')
+Post.create(fact:'test3', notice:'test3',category_id:'3',user_id: '3')
+Post.create(fact:'test1', notice:'test1',category_id:'3',user_id: '1')
+Post.create(fact:'test2', notice:'test2',category_id:'1',user_id: '2')
+Post.create(fact:'test3', notice:'test3',category_id:'1',user_id: '3')
+Post.create(fact:'test1', notice:'test1',category_id:'1',user_id: '1')
+Post.create(fact:'test2', notice:'test2',category_id:'1',user_id: '2')
+Post.create(fact:'test3', notice:'test3',category_id:'1',user_id: '3')
+Post.create(fact:'test1', notice:'test1',category_id:'1',user_id: '1')

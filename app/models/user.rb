@@ -1,14 +1,20 @@
 class User < ApplicationRecord
   has_many :posts, dependent: :destroy
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  has_many :follows, dependent: :destroy
+  has_many :comments
+  has_many :like
+  has_many :categories
+  enum status:{nonreleased: 0, released: 1}
+  has_one_attached :image
+
+
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-    validates :nickname, presence: true, length: { maximum: 50 }
 
-    def update_without_current_password(params, *options)
-    params.delete(:current_password)
+  def update_without_current_password(params, *options)
+  params.delete(:current_password)
 
     if params[:password].blank? && params[:password_confirmation].blank?
       params.delete(:password)
@@ -19,5 +25,6 @@ class User < ApplicationRecord
     clean_up_passwords
     result
   end
+
 
 end

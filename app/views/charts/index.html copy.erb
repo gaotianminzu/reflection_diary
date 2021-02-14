@@ -1,0 +1,28 @@
+<canvas id="myChart" width="400" height="400"></canvas>
+<script src ="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js"></script>
+  <script>
+    (function() {
+      'use strict';
+
+      var type = 'doughnut';
+      var data = {
+
+        labels: [ "YES", "NO", 'Maybe'],
+        datasets: [{
+          data: [122, 53, 33],
+          backgroundColor: ['tomato', 'skyblue', 'gray']
+        }]
+
+      };
+      var options = {
+        cutoutPercentage: 40
+
+      };
+      var ctx = document.getElementById('my_chart').getContext('2d');
+      var myChart = new Chart(ctx, {
+        type: type,
+        data: data,
+        options: options
+      });
+    })();
+  </script>

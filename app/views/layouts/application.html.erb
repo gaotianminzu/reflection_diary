@@ -5,20 +5,17 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <!-- CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/ress/dist/ress.min.css">
     <link href="https://fonts.googleapis.com/css?family=Philosopher" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+
+ <script src="https://kit.fontawesome.com/70d995a5df.js" crossorigin="anonymous"></script>
+      </head>
+      <body>
 
 
-  <body>
+        <%= yield %>
 
-    <%= yield %>
-    <footer>
-      <p>
-        Copyright Reflection Diary 2021.
-      </p>
-    </footer>
+
   </body>
 </html>

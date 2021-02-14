@@ -1,0 +1,46 @@
+<div class="second_wrapper">
+    <%= render "shared/second-header"%>
+        <div class="post_form" >
+                <div class='post_form-wrap'>
+                    <div class='post_form-header'>
+                      <h1 class='post_form-header-text'>記録する</h1>
+                    </div>
+                    <%= form_with model:@post, url:post_path, local: true do |f| %>
+                          <div class="post_form-group">
+                            <label class="post_form-text">事実</label>
+                              <div class="FlexTextarea">
+                                  <div class="FlexTextarea__dummy" aria-hidden="true"></div>
+                                  <%= f.text_area :fact, placeholder: 'どんなことがありましたか？' ,id:"FlexTextarea",class:"FlexTextarea__textarea" %>
+                                  </div>
+                              </div>
+                            <div class="post_form-group">
+                            <label class="post_form-text">気付き</label>
+                              <div class="FlexTextarea">
+                                <div class="FlexTextarea__dummy" aria-hidden="true"></div>
+                                <%= f.text_area :notice, placeholder: '何か分かったことはありました？' ,id:"FlexTextarea",class:"FlexTextarea__textarea"%>
+                              </div>
+                            </div>
+                            <div class="post_form-group">
+
+                            </div>
+                            <div class="post_form-group">
+                              <ul class="post_form-radio">
+                                  <li><%= f.radio_button :category_id, '1' %>  感謝</li>
+                                  <li><%= f.radio_button :category_id, '2' %> 教訓</li>
+                                  <li><%= f.radio_button :category_id, '3' %> 感情</li>
+                              </ul>
+                            </div>
+                            <div class="post_form-group">
+                            <label class="post_form-text">画像</label>
+                            <%= f.file_field :image %>
+                            </div>
+                          <div class="post_form-group">
+                          <%= f.submit '更新する',class:"register-btn" %>
+                          </div>
+                    <% end %>
+              </div>
+        </div>
+      <div class="push"></div>
+    <%= render "shared/second-footer"%>
+</div>
+

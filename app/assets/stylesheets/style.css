@@ -46,6 +46,20 @@ img {
 
 }
 
+.nav_wrapper{
+    position:relative;
+   }
+   
+   .nav_wrapper_child{
+    position: absolute;
+    padding:0 auto;
+    width:100%;
+
+ 
+
+   }
+   
+
 /* 大きな背景画像 */
 .big-bg {
     background-size: cover;
@@ -120,6 +134,10 @@ iframe {
     margin-left:20px;
     margin-top: 5px;
     color: #fff;
+    position:relative;
+    left: 50px;
+    
+
 }
 .main-nav {
     display: flex;
@@ -146,8 +164,8 @@ iframe {
     top:0;
     right:0;
     width:100%;
-
-    position: fixed;
+    height:65px;
+    position: relative;
 
     
 }
@@ -231,16 +249,19 @@ footer {
     width:100%;
     position: fixed; 
     width: 100%;
-    background-color:rgba(118, 110, 100, 0.675);
+    background-color:rgba(60, 91, 70, 0.675);
     /* background: linear-gradient(to right, rgb(185, 222, 185), rgb(130, 182, 138)); */
     /* position: absolute;  */
     bottom: 0;
     line-height: 60px;
+    display:flex;
+    justify-content: center;
 }
 footer p {
     color: #fff;
     font-size: 0.875rem;
     margin:0;
+    
 }
 
 .push {
@@ -504,7 +525,7 @@ footer p {
   }
 
   .profile_box {
-      margin-top:120px;
+      margin-top:50px;
   }
   
 
@@ -517,7 +538,7 @@ footer p {
     width:100%;
     margin-left: auto;
     margin-right: auto;
-    padding:100px 0 10px 0;
+    padding:20px 0 10px 0;
     max-width: 800px;
 
   }
@@ -595,7 +616,7 @@ footer p {
 .follow_box{
  display:flex;
  justify-content: flex-start;
- margin:100px 0 0 0;
+ margin:20px 0 0 0;
 }
 
 
@@ -680,12 +701,12 @@ footer p {
 /* 右下ボタン */
 #page-top{
     width: 100px;
-    height: 100px;
-    position: fixed;
-    right: 50px;
+    height: 100px;;
+    position: absolute;
+    right:10px;
     bottom: -10px;
     opacity: 0.8;
-    z-index: 3;
+    z-index: 2;
   }
   #page-top a{
     position: relative;
@@ -719,12 +740,12 @@ footer p {
 #writing{
     width: 60px;
     height: 60px;
-    position: fixed;
-    right: 100px;
-    top: 10px;
+    position: absolute;
+    right: 30px;
+    top: 5px;
     opacity: 0.7;
     border-radius: 4px;
-    z-index: 2;
+    z-index: 3;
   }
   #writing a{
     position: relative;
@@ -732,9 +753,9 @@ footer p {
     width: 60px;
     height: 60px;
     text-decoration: none;
-    background-color:rgb(3, 192, 255);
+    background-color:rgb(73, 92, 82);
     border-radius: 30%;
-    border:solid 4px rgb(255, 255, 255);
+    border:solid 2px rgb(255, 255, 255);
 
   }
   #writing a:before{
@@ -764,4 +785,10 @@ footer p {
 
 .top-space100 {
  margin-top:100px;
+}
+
+.footer_wrapper{
+ width: 1100px;
+ position:relative;
+
 }

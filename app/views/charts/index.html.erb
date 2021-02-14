@@ -1,36 +1,153 @@
-<canvas id="myChart"></canvas>
-<p><%= @thanks %> </p><p><%= @lesson%></p><p><%= @emotion %> </p>
-<script src ="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js"></script>
-<script>
 
-var ctx = document.getElementById("myChart");
-var myChart = new Chart(ctx, {
-  type: 'radar',
-  data: {
-    labels: ["感謝", "教訓", "感情", ],
-    datasets: 
-    [
+<%= render "shared/second-header"%>
+  <div class="second_wrapper">
+    <div class="wrapper">
+              <p class="chart_title">アウトプットした日記の割合（％）</p>
+      <div class="chart_box">
 
-        {
-        backgroundColor: 'rgba(122,255,129,0.2)',
-        borderColor: 'rgba(122,255,129,0.2)',
-        data: [<%= @thanks %>, <%= @lesson%>, <%= @emotion %> ]
-        },
-                {
-        backgroundColor: 'rgba(122,255,129,0.2)',
-        borderColor: 'rgba(122,255,129,0.2)',
-        data: [<%= @thanks_all %>, <%= @lesson_all%>, <%= @emotion_all %> ]
-        },
+        <div class="chart_graph"><canvas id="myChart"  width="200" height="200"></canvas></div>
+        <div class="chart_graph"><canvas id="myChart_all" width="200" height="200"></canvas></div>
+      </div>
+        <div class="chart_box" >
+          <div class="chart_graph">
+            <table>
+                <tr class="title">
+                  <th>わたしのアウトプット</th>
+                  <td>感謝</td>
+                  <td>教訓</td>
+                  <td>感情</td>
+                </tr>
+                <tr>
+                  <th class="side">件数</th>
+                  <td><%= @thanks %> 件</td>
+                  <td><%= @lesson%>件</td>
+                  <td><%= @emotion %> 件</td>
+                </tr>
+                <tr>
+                  <th class="side">割合</th>
+                  <td ><%= @thanks_blm  %> %</td>
+                  <td><%= @lesson_blm%>%</td>
+                  <td><%= @emotion_blm %>%</td>
+                </tr>
 
-    ]
-  },
-  options: {
-      scale: {
-          ticks: {
-              suggestedMin: 0,
-              suggestedMax: 5
-          }
-      }
-  }
-});
-</script>
+              </table>
+            </div>
+            <div class="chart_graph">
+              <table>
+                <tr class="title2">
+                  <th>みんなのアウトプット</th>
+                  <td>感謝</td>
+                  <td>教訓</td>
+                  <td>感情</td>
+                </tr>
+                <tr>
+                  <th class="side2">件数</th>
+                  <td><%= @thanks_all %> 件</td>
+                  <td><%= @lesson_all %>件</td>
+                  <td><%= @emotion_all %> 件</td>
+                </tr>
+                <tr>
+                  <th class="side2">割合</th>
+                  <td><%= @thanks_all_blm %>% </td>
+                  <td><%= @lesson_all_blm %> % </td>
+                  <td><%= @emotion_all_blm %>% </td>
+                </tr>
+              </table>
+
+            </div>
+
+          </div>
+                        <p>※公開・非公開を含む全ての件数</p>
+    </div>  <%# wrapper end%>
+  </div> <%# second_wrapper end%>
+  <div class="push"></div>
+<%= render "shared/second-footer" %>
+
+
+
+
+      <script src ="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js"></script>
+      <script>
+      // わたし
+              var ctx = document.getElementById("myChart");
+              var myChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                  labels: ["感謝", "教訓", "感情", ],
+                  datasets: 
+                  [
+
+                      {
+                      label: 'わたしのアウトプット',
+                      backgroundColor: 'rgba(122,255,129,0.2)',
+                      borderColor: 'rgba(122,255,129,0.2)',
+                      data: [<%= @thanks_blm %>, <%= @lesson_blm%>, <%= @emotion_blm%> ]
+                      },
+
+
+                  ]
+                },
+                options: {
+                  
+                    scale: {
+                        ticks: {
+                            suggestedMin: 0,
+                            suggestedMax: 100,
+                        },
+                      pointLabels: {
+                            fontSize: 14,
+                        },
+
+                    },
+                    legend: {
+                        position: "top",
+                        labels: {
+                            fontSize: 20,  
+                        }
+                    },                
+
+                }
+              });
+
+      // みんな
+              var ctx = document.getElementById("myChart_all");
+              var myChart_all = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                  labels: ["感謝", "教訓", "感情", ],
+                  datasets: 
+                  [
+
+
+                              {
+                      label: 'みんなのアウトプット',
+                      backgroundColor: 'rgba(0,0,255,0.1)',
+                      borderColor: 'rgba(0,0,255,0.1)',
+                      data: [<%= @thanks_all_blm %>, <%= @lesson_all_blm%>, <%= @emotion_all_blm %> ]
+                      },
+
+                  ]
+                },
+                options: {
+                  
+                    scale: {
+                        ticks: {
+                            suggestedMin: 0,
+                            suggestedMax: 100,
+                        },
+                      pointLabels: {
+                            fontSize: 14,
+                        },
+
+                    },
+                    legend: {
+                        position: "top",
+                        labels: {
+                            fontSize: 20,  
+                        }
+                    },                
+
+                }
+              });
+
+      </script>

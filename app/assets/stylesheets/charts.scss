@@ -1,3 +1,73 @@
-// Place all the styles related to the charts controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.chart_box{
+  display:flex;
+  width:100％;
+  background-color:white;
+}
+
+.chart_title {
+  text-align: center;
+  color:#fff;
+  font-size:25px;
+  width:100%;
+  background-color:rgb(103, 126, 137);
+  margin-top:100px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+
+}
+
+.chart_graph{
+  width:  calc(100% - 40px);
+  overflow: hidden;
+  margin:30px;
+  border-bottom-left-radius: 30px;
+}
+
+.chart_table_box {
+ display:flex;
+
+}
+
+
+
+
+
+.chart_graph table{
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.chart_graph table tr{
+  border-bottom: solid 1px #eee;
+
+}
+
+
+.chart_graph table th,table td{
+  text-align: center;
+  width: 25%;
+  padding: 15px;
+}
+
+
+.chart_graph .title {
+
+  background-color:rgba(122,255,129,0.2);
+}
+
+.chart_graph .side {
+  background-color:rgba(122,255,129,0.3);
+}
+
+
+.chart_graph .title2 {
+
+  background-color:rgba(0,0,255,0.1);
+
+}
+
+.chart_graph .side2 {
+  background-color: rgba(0,0,255,0.1);
+}

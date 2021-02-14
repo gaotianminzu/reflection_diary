@@ -8,9 +8,17 @@ class UsersController < ApplicationController
   end
 
   def show
-    @nickname = current_user.nickname
-    @posts = current_user.posts.includes(:user).order("created_at DESC")
-    set_category_column
+
+
+      @user = User.find(params[:id])
+      if current_user.id == @user.id
+       @posts = @user.posts.includes(:user).order("posts.created_at DESC")
+      else
+        @posts = @user.posts.includes(:user).order("posts.created_at DESC").joins(:user).where(users: {status: "1"})
+      end
+      @nickname = @user.nickname
+      set_category_column
+
   end
 
   #公開・非公開設定
@@ -46,6 +54,12 @@ class UsersController < ApplicationController
   def set_category_column
     @category_name = Category.select("name").distinct
   end
+
+
+
+
+
+
 
 end
 

@@ -4,6 +4,8 @@ class Post < ApplicationRecord
   belongs_to :category
   has_many :comments, dependent: :destroy
   has_many :likes, ->{ order(created_at: :desc)}, dependent: :destroy
+  has_many :follows
+ 
 
   def liked_by(user)
     Like.find_by(user_id: user.id, post_id: id)

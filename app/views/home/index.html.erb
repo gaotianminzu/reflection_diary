@@ -1,6 +1,6 @@
         <div id="home" class="big-bg">
             <header class="page-header wrapper">
-                <nav>
+                <div>
                    <ul class="main-nav">
                     <% if user_signed_in? %>
                         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"  %></li> 
@@ -9,7 +9,7 @@
                         <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li> 
                     <% end%>
                     </ul>
-                </nav>
+                </div>
             </header>
             
             <div class="home-content wrapper">
@@ -21,5 +21,5 @@
                     <%= link_to '日記を書く', posts_path, class: "button"  %>
                      <% end%>
             </div>
-            
         </div>
+

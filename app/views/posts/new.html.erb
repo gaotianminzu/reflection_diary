@@ -1,32 +1,43 @@
 <div class="second_wrapper">
     <%= render "shared/second-header"%>
     <div class="wrapper" >
-        <div class="form" >
-                <div class='form-wrap'>
-                    <div class='form-header'> <h1 class='form-header-text'>記録する</h1>
+        <div class="post_form" >
+                <div class='post_form-wrap'>
+                    <div class='post_form-header'> <h1 class='post_form-header-text'>記録する</h1>
                     </div>
+
+
                     <%= form_with model:@post, url:posts_path, local: true do |f| %>
-                          <div class="form-group">
-                            <label class="form-text">事実</label>
-                              <%= f.text_area :fact, placeholder: 'どんなことがありましたか？' ,class:"input-area-default"  %>
+
+                          <div class="post_form-group">
+                            <label class="post_form-text">事実</label>
+                              <div class="FlexTextarea">
+                                  <div class="FlexTextarea__dummy" aria-hidden="true"></div>
+                                  <%= f.text_area :fact, placeholder: 'どんなことがありましたか？' ,id:"FlexTextarea",class:"FlexTextarea__textarea" %>
+                                  </div>
                               </div>
-                            <div class="form-group">
-                            <label class="form-text">気付き</label>
-                              <%= f.text_field :notice, placeholder: 'わかったことはありました？' ,class:"input-default" %>
+                            <div class="post_form-group">
+                            <label class="post_form-text">気付き</label>
+                              <div class="FlexTextarea">
+                                <div class="FlexTextarea__dummy" aria-hidden="true"></div>
+                                <%= f.text_area :notice, placeholder: '何か分かったことはありました？' ,id:"FlexTextarea",class:"FlexTextarea__textarea"%>
+                              </div>
                             </div>
-                            <div class="form-group">
-                              <ul class="form-radio">
-                                <li> <%= f.radio_button :category_id, '' %> 指定なし</li>
+                            <div class="post_form-group">
+
+                            </div>
+                            <div class="post_form-group">
+                              <ul class="post_form-radio">
                                   <li><%= f.radio_button :category_id, '1' %>  感謝</li>
                                   <li><%= f.radio_button :category_id, '2' %> 教訓</li>
                                   <li><%= f.radio_button :category_id, '3' %> 感情</li>
                               </ul>
                             </div>
-                            <div class="form-group">
-                            <label class="form-text">画像</label>
+                            <div class="post_form-group">
+                            <label class="post_form-text">画像</label>
                             <%= f.file_field :image %>
                             </div>
-                            <div class="form-group">
+                            <div class="post_form-group">
                             <%= f.submit '送信',class:"register-btn" %>
                             </div>
                     <% end %>
@@ -36,3 +47,15 @@
   </div>
     <%= render "shared/second-footer"%>
 </div>
+
+<script>
+    function flexTextarea(el) {
+      const dummy = el.querySelector('.FlexTextarea__dummy')
+      el.querySelector('.FlexTextarea__textarea').addEventListener('input', e => {
+        dummy.textContent = e.target.value + '\u200b'
+      })
+    }
+
+    document.querySelectorAll('.FlexTextarea').forEach(flexTextarea)
+
+</script>

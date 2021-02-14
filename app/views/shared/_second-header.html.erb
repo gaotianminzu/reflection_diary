@@ -1,51 +1,54 @@
       <header class="main-nav-bg">
       <a id="top"></a>
-            <div id="navArea" class="wrapper">
-             <div class="nav_wrapper">
-                    <div class="toggle_btn nav_wrapper_child center ">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <div class="post-page-header">
-                        <%= link_to 'Reflection Diary', root_path, class:"logo"%>
-                    </div>
-                    <span  id="writing"><%= link_to '', new_post_path%> </span>
-                    
-                    <nav>
-                        <div class="inner">
-                        <ul>
-                        <% if user_signed_in? %>
-                            <div class="sub-title">Diary</div>
-                            <li><%= link_to '日記を書く', new_post_path %></li> 
-                            <li ><%= link_to 'TOP', "/posts/" %></li> 
-                            <li ><%= link_to 'マイページ', "/users/#{current_user.id}" %></li> 
-                             <li><%= link_to '統計', charts_path %></li> 
-                            <li><%= link_to 'お気に入り', follows_path %></li> 
+        <div class="wrapper">
+          <div class="nav_wrapper">
+            <div class="nav_wrapper_child">
+              <span  id="writing" ><%= link_to '', new_post_path%> </span>
+                <div class="post-page-header">
+                    <%= link_to 'Reflection Diary', root_path, class:"logo"%>
+                </div>
+                <div>
+                <div id="navArea">
+                      <div class="toggle_btn">
+                          <span></span>
+                          <span></span>
+                          <span></span>
+                      </div>
 
-                             <div class="sub-title">アカウント情報</div>
-                            <li><%= link_to 'プロフィール編集', edit_user_registration_path, class: "logout"  %></li> 
-                            <li><%= link_to 'パスワード設定', "/users/edit#password", class: "logout"  %></li> 
-                            <li><%= link_to 'プライベート設定', "/users/edit#private", class: "logout"  %></li> 
-                            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"  %></li> 
-                
-                            <% else %>
-                             <div class="sub-title">アカウント情報</div>
-                                <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-                                <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li> 
-                            <% end%>
-                        </ul>
-                        </div>
-                    </nav>
+                      <nav>
+                          <div class="inner">
+                          <ul>
+                          <% if user_signed_in? %>
+                              <div class="sub-title">Diary</div>
+                              <li><%= link_to '日記を書く', new_post_path %></li> 
+                              <li ><%= link_to 'TOP', "/posts/" %></li> 
+                              <li ><%= link_to 'マイページ', "/users/#{current_user.id}" %></li> 
+                              <li><%= link_to '統計', charts_path %></li> 
+                              <li><%= link_to 'お気に入り', follows_path %></li> 
 
-
-                    
-                    <div id="mask"></div>
-              </div>
+                              <div class="sub-title">アカウント情報</div>
+                              <li><%= link_to 'プロフィール編集', edit_user_registration_path, class: "logout"  %></li> 
+                              <li><%= link_to 'パスワード設定', "/users/edit#password", class: "logout"  %></li> 
+                              <li><%= link_to 'プライベート設定', "/users/edit#private", class: "logout"  %></li> 
+                              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout"  %></li> 
+                  
+                              <% else %>
+                              <div class="sub-title">アカウント情報</div>
+                                  <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+                                  <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li> 
+                              <% end%>
+                          </ul>
+                          </div>
+                      </nav>
+                      <div id="mask"></div>
+                </div>
             </div>
+             </div>
+          </div>
+        </div>
 
  
-
+            </div>
       </header>
 
 <script>

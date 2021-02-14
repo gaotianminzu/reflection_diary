@@ -5,7 +5,7 @@ nav {
   display: block;
   position: fixed;
   top:85px;
-  left: -300px;
+  right: -300px;
   bottom: 0;
   width: 300px;
   background: #ffffff;
@@ -18,7 +18,7 @@ nav {
   
 }
 .open nav {
-  left: 0;
+  right: 0;
   top:85px;
   opacity: 1;
 }
@@ -85,8 +85,8 @@ nav .sub ul li a:hover {
 .toggle_btn {
   display: block;
   position: fixed;
-  top: 20px;
-  left: 15px;
+  top: 25px;
+  right: 60px;
   width: 30px;
   height: 30px;
   transition: all .5s;
@@ -163,4 +163,3 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
 }
-

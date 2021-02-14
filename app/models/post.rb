@@ -21,7 +21,7 @@ class Post < ApplicationRecord
         end
   end
 
-#自分のDiary内のキーワード検索
+  #自分のDiary内のキーワード検索
   def self.my_search_key(my_search_key)
 
     if my_search_key != ""

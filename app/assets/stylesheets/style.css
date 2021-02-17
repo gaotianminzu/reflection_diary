@@ -150,7 +150,7 @@ iframe {
     margin-left: 36px;
 }
 .main-nav a {
-    color: rgb(251, 248, 245);
+    color: rgba(251, 248, 245);
 }
 .main-nav a:hover {
     color: rgb(178, 255, 23);

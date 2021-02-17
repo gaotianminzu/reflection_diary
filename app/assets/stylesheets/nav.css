@@ -53,7 +53,7 @@ nav .inner ul li a:hover {
 nav .push {
   height: 20px;
 }
-// 多層
+
 nav .sub  li {
   position: relative;
   margin: 0;

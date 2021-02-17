@@ -344,8 +344,6 @@ footer p {
 
 
 
-
-
 .diary-item {
  border: 1px solid white;
  margin:15px 0 0 20px;
@@ -355,10 +353,7 @@ footer p {
 }
 
 
-.diary-article {
 
-
-}
 
 .diary-article-bottom {
     display:flex;
@@ -367,9 +362,7 @@ footer p {
     width:100%;
 }
 
-.diary-review{
 
-}
 
 .diary-review2{
     display:flex;
@@ -388,7 +381,6 @@ footer p {
 }
 
 
-}
 .diary-image-box {
     display:flex;
     justify-content: center;
@@ -634,7 +626,7 @@ footer p {
 }
 
 .follow_side p {
- font-weight: bold; 1
+ font-weight: bold; 
  font-size:20px;
  text-align:center;
 }

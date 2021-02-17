@@ -53,21 +53,25 @@
 
 
 .chart_graph .title {
-
-  background-color:rgba(122,255,129,0.2);
+/* 
+  background-color:rgba(122,255,129,0.2); */
+  background-color:rgb(190, 215, 191);
 }
 
 .chart_graph .side {
-  background-color:rgba(122,255,129,0.3);
+  /* background-color:rgba(122,255,129,0.3); */
+  background-color:rgb(190, 215, 191);
 }
 
 
 .chart_graph .title2 {
 
-  background-color:rgba(0,0,255,0.1);
+  /* background-color:rgba(0,0,255,0.1); */
+  background-color: rgb(177, 177, 222);
 
 }
 
 .chart_graph .side2 {
-  background-color: rgba(0,0,255,0.1);
+  /* background-color: rgba(0,0,255,0.1); */
+  background-color: rgb(177, 177, 222);
 }

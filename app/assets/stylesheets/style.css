@@ -150,7 +150,7 @@ iframe {
     margin-left: 36px;
 }
 .main-nav a {
-    color: rgba(251, 248, 245);
+    color: rgb(251, 248, 245);
 }
 .main-nav a:hover {
     color: rgb(178, 255, 23);
@@ -221,7 +221,7 @@ iframe {
 }
 .post-date span {
     font-size: 1rem;
-    border-top: 1px rgba(255,255,255,.5) solid;
+    border-top: 1px rgb(255,255,255) solid;
     padding-top: 6px;
     display: block;
     width: 80%;
@@ -249,11 +249,11 @@ footer {
     width:100%;
     position: fixed; 
     width: 100%;
-    background-color:rgba(60, 91, 70, 0.675);
+    background-color:rgb(60, 91, 70);
     /* background: linear-gradient(to right, rgb(185, 222, 185), rgb(130, 182, 138)); */
     /* position: absolute;  */
     bottom: 0;
-    line-height: 60px;
+    line-height: 55px;
     display:flex;
     justify-content: center;
 }
@@ -698,7 +698,7 @@ footer p {
     height: 100px;;
     position: absolute;
     right:10px;
-    bottom: -10px;
+    bottom: -13px;
     opacity: 0.8;
     z-index: 2;
   }
